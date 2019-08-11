@@ -1,0 +1,10 @@
+certifi==2018.11.29
+chardet==3.0.4
+idna==2.7
+python-dateutil==2.7.5
+python-slugify==1.2.6
+requests==2.20.1
+six==1.11.0
+tqdm==4.28.1
+Unidecode==1.0.23
+urllib3==1.22
