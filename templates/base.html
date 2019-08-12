@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Expense Tracker</title>
+    <!-- Custom Style CSS file-->
+    <link rel="stylesheet" href="static/css/style.css">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-wrapper indigo darken-1">
+                <a href="#" class="brand-logo right">Expense Tracker</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li><a href="sass.html">Dashboard</a></li>
+                    <li><a href="badges.html">New Expense</a></li>
+                    <li><a href="collapsible.html">Manage Category</a></li>
+                </ul>
+            </div>
+        </nav>
+        <ul class="sidenav blue lighten-3" id="mobile-demo">
+            <li><a href="sass.html">Dashboard</a></li>
+            <li><a href="badges.html">New Expense</a></li>
+            <li><a href="collapsible.html">Manage Category</a></li>
+
+        </ul>
+    </header>
+    <main>
+        {% block content %} {% endblock %}
+    </main>
+
+    <footer class="page-footer indigo darken-1">
+        <div class="footer-copyright indigo darken-1 grey-text text-lighten-4 right">
+
+            <h7>© 2019 Luigi Langella</h7>
+
+        </div>
+    </footer>
+
+
+
+    <!-- Compiled and minified jquery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script type='text/javascript'>
+        $(document).ready(function() {
+            $('.sidenav').sidenav();
+        });
+    </script>
+</body>
+
+</html>
