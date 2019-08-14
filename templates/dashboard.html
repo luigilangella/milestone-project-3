@@ -1,1 +1,24 @@
-{% extends 'base.html' %} {% block content %} {% endblock %}
+{% extends 'base.html' %} {% block content %} {% for category in categories %}
+
+<div class="row">
+    <div class="col s6">
+        <div class="collection">
+            <a href="#!" class="collection-item">{{ category.category_name }} : {{ category.value }}<i class="material-icons tiny">attach_money</i></a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div class="row">
+    <div class="col s6 left">
+        <div id="pie"></div>
+
+    </div>
+    <div class="col s6 right">
+        <div id="bar"></div>
+
+    </div>
+</div>
+
+
+
+{% endblock %}

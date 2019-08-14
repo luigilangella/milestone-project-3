@@ -11,3 +11,35 @@ main {
 .page-footer .footer-copyright {
     background-color: rgb(237, 110, 115) !important;
 }
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #fff;
+}
+
+.axis text {
+    font-size: 13px;
+}
+
+svg text.label {
+    fill: white;
+    font: 15px;
+    font-weight: 400;
+    text-anchor: middle;
+}
+
+#bar .axis.x .tick text {
+    text-anchor: end;
+    transform: rotate(-50deg) translate(-60px, -10px);
+}
+
+#bar.dc-chart svg {
+    width: 600px;
+    height: 500px;
+}
+
+#pie.dc-chart svg {
+    width: 600px;
+    height: 500px;
+}
