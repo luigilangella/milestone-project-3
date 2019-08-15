@@ -24,6 +24,22 @@ def dashboard():
     all_categories = mongo.db.categories.find()
     return render_template('dashboard.html',  categories=all_categories)
 
+@app.route('/addExpense')
+def addExpense():
+    all_categories = mongo.db.categories.find()
+    return render_template('addExpense.html', categories=all_categories)
+
+@app.route('/insertExpense', methods=['POST'])
+def insertExpense():
+    result = request.form.to_dict()
+    print(result)
+    mongo.db.categories.update_one(result, {'$in': 'category_name'})
+    return redirect(url_for('dashboard'))
+
+@app.route('/addCategory')
+def addCategory():
+    return render_template('addCategory.html')
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=(os.environ.get('PORT')),
