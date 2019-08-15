@@ -33,7 +33,7 @@ def addExpense():
 def insertExpense():
     result = request.form.to_dict()
     print(result)
-    mongo.db.categories.update_one(result, {'$in': 'category_name'})
+    mongo.db.categories.update_one({'value':result['value']},{'$inc': int(result['value']}))
     return redirect(url_for('dashboard'))
 
 @app.route('/addCategory')
