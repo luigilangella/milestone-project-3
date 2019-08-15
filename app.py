@@ -31,7 +31,7 @@ def addExpense():
 
 @app.route('/insertExpense', methods=['POST'])
 def insertExpense():
-    result = request.form.to_dict(result)
+    result = request.form.to_dict()
     print(result)
     mongo.db.categories.update_one()
     return redirect(url_for('dashboard'))
