@@ -7,7 +7,7 @@ from bson.json_util import dumps
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = 'expense-tracker'
-app.config["MONGO_URI"] = 'mongodb+srv://luigi76langella:Marilena7376@myfirstcluster-m2dp9.mongodb.net/expense-tracker?retryWrites=true&w=majority'
+app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost') 
 
 mongo = PyMongo(app)
 
