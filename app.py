@@ -7,7 +7,7 @@ from bson.json_util import dumps
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = 'expense-tracker'
-app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost') 
+app.config["MONGO_URI"] = 'mongodb+srv://luigi76langella:Marilena7376@myfirstcluster-m2dp9.mongodb.net/expense-tracker?retryWrites=true&w=majority'
 
 mongo = PyMongo(app)
 
@@ -33,7 +33,7 @@ def addExpense():
 def insertExpense():
     result = request.form.to_dict()
     print(result)
-    mongo.db.categories.update_one()
+    mongo.db.categories.update_one({}, result)
     return redirect(url_for('dashboard'))
 
 @app.route('/addCategory')
