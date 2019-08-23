@@ -11,16 +11,14 @@ app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
 
 mongo = PyMongo(app)
 
-data = dumps(mongo.db.categories.find())
 
-
-with open('static/data.json', 'w') as file:  # Use file to refer to the file object
-
-   file.write(data)
 
 @app.route('/')
 @app.route('/dashboard')
 def dashboard():
+    data = dumps(mongo.db.categories.find())
+    with open('static/js/data.json', 'w') as file:  # Use file to refer to the file objects
+        file.write(data)
     all_categories = mongo.db.categories.find()
     return render_template('dashboard.html',  categories=all_categories)
 
@@ -31,9 +29,8 @@ def addExpense():
 
 @app.route('/insertExpense', methods=['POST'])
 def insertExpense():
-    result = request.form.to_dict()
-    print(result)
-    mongo.db.categories.update_one({}, result)
+    all_categories = mongo.db.categories
+    all_categories.replace_one({ 'category_name': request.form.get('category_name') },{'category_name': request.form.get('category_name'),'value':int(request.form.get('value'))})
     return redirect(url_for('dashboard'))
 
 @app.route('/addCategory')
@@ -44,4 +41,4 @@ if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=(os.environ.get('PORT')),
             debug=True)
-    url_for('static', filename='data.json')
+    url_for('static', filename='js/data.json')
