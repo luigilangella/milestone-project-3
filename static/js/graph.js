@@ -1,5 +1,5 @@
 queue()
-    .defer(d3.json, "static/js/data.json")
+    .defer(d3.json, "static/data/data.json")
     .await(makegraphs);
 
 function makegraphs(error, data) {
