@@ -33,6 +33,22 @@ def insertExpense():
     all_categories.replace_one({ 'category_name': request.form.get('category_name') },{'category_name': request.form.get('category_name'),'value':int(request.form.get('value'))})
     return redirect(url_for('dashboard'))
 
+@app.route('/delete_category/<category_id>')
+def delete_category(category_id):
+    mongo.db.categories.remove({'_id': ObjectId(category_id)})
+    return redirect(url_for('dashboard'))
+
+@app.route('/insert_category', methods=['POST'])
+def insert_category():
+    category_doc = {'category_name': request.form.get('category_name')}
+    mongo.db.categories.insert_one(category_doc)
+    return redirect(url_for('dashboard'))
+
+@app.route('/editCategory')
+def editCategory():
+    all_categories = mongo.db.categories.find()
+    return render_template('editCategory.html', categories=all_categories)
+
 @app.route('/addCategory')
 def addCategory():
     return render_template('addCategory.html')

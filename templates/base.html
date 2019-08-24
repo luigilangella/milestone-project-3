@@ -20,18 +20,21 @@
         <nav>
             <div class="nav-wrapper indigo darken-1">
                 <a href="#" class="brand-logo right">Expense Tracker</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
                     <li><a href="{{url_for('dashboard')}}">Dashboard</a></li>
                     <li><a href="{{url_for('addExpense')}}">New Expense</a></li>
-                    <li><a href="{{url_for('addCategory')}}">Manage Category</a></li>
+                    <li><a href="{{url_for('addCategory')}}">Add Category</a></li>
+                    <li><a href="{{url_for('editCategory')}}">Delete Category</a></li>
+
                 </ul>
             </div>
         </nav>
-        <ul class="sidenav blue lighten-3" id="mobile-demo">
-            <li><a href="sass.html">Dashboard</a></li>
-            <li><a href="badges.html">New Expense</a></li>
-            <li><a href="collapsible.html">Manage Category</a></li>
+        <ul class="sidenav blue lighten-3" id="mobile">
+            <li><a href="{{url_for('dashboard')}}">Dashboard</a></li>
+            <li><a href="{{url_for('addExpense')}}">New Expense</a></li>
+            <li><a href="{{url_for('addCategory')}}">Add Category</a></li>
+            <li><a href="{{url_for('editCategory')}}">Delete Category</a></li>
 
         </ul>
     </header>

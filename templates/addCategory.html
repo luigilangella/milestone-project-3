@@ -1,1 +1,21 @@
-{% extends 'base.html' %} {% block content %} {% endblock %}
+{% extends 'base.html' %} {% block content %}
+<div class="row">
+    <div>
+        <h4 class="center-align">Add a new Category</h4>
+    </div>
+    <hr>
+    <form action="{{ url_for('insert_category')}}" method="POST" class="col s12">
+        <div class="row">
+
+            <div class="input-field col s12">
+                <i class="material-icons prefix">attach_money</i>
+                <input id="category_name" type='text' name="category_name" class="validate">
+                <label for="icon_telephone">Which Category would you like to add?</label>
+            </div>
+        </div>
+        <button class="btn waves-effect waves-light" type="submit">Add category
+            <i class="material-icons right">send</i>
+        </button>
+    </form>
+</div>
+{% endblock %}
