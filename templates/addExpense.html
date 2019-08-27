@@ -6,7 +6,8 @@
     <hr>
     <form action="{{ url_for('insertExpense')}}" method="POST" class="col s12">
         <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col s12 m6 l6">
+                <i class="material-icons prefix">assignment</i>
                 <select id="category" name="category_name">
                     <option value="" disabled selected>Choose your option</option>
                     {% for category in categories %}
@@ -16,10 +17,10 @@
                 <label>Category Select</label>
             </div>
 
-            <div class="input-field col s6">
+            <div class="input-field col s12 m6 l6">
                 <i class="material-icons prefix">attach_money</i>
                 <input id="value" type='number' name="value" class="validate">
-                <label for="icon_telephone">How Much Did You Spend?</label>
+                <label>How Much Did You Spend?</label>
             </div>
         </div>
         <button class="btn waves-effect waves-light" type="submit">Add Expense
