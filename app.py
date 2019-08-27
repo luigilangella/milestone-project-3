@@ -28,7 +28,7 @@ def addExpense():
 @app.route('/insertExpense', methods=['POST'])
 def insertExpense():
     all_categories = mongo.db.categories
-    all_categories.replace_one({ 'category_name': request.form.get('category_name') },{'category_name': request.form.get('category_name'),'value':int(request.form.get('value'))})
+    all_categories.update_one({'category_name': request.form.get('category_name')}, {'$inc': {'value':int(request.form.get('value'))}})
     return redirect(url_for('dashboard'))
 
 @app.route('/delete_category/<category_id>')

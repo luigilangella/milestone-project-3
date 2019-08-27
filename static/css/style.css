@@ -8,6 +8,10 @@ main {
     flex: 1 0 auto;
 }
 
+strong {
+    font-size: x-large;
+}
+
 .page-footer .footer-copyright {
     background-color: rgb(237, 110, 115) !important;
 }

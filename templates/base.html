@@ -12,7 +12,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
 </head>
 
 <body>
@@ -23,7 +22,7 @@
                 <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
                     <li><a href="{{url_for('dashboard')}}">Dashboard</a></li>
-                    <li><a href="{{url_for('addExpense')}}">New Expense</a></li>
+                    <li><a href="{{url_for('addExpense')}}">Add New Expense</a></li>
                     <li><a href="{{url_for('addCategory')}}">Add Category</a></li>
                     <li><a href="{{url_for('editCategory')}}">Delete Category</a></li>
 
@@ -32,7 +31,7 @@
         </nav>
         <ul class="sidenav blue lighten-3" id="mobile">
             <li><a href="{{url_for('dashboard')}}">Dashboard</a></li>
-            <li><a href="{{url_for('addExpense')}}">New Expense</a></li>
+            <li><a href="{{url_for('addExpense')}}">Add New Expense</a></li>
             <li><a href="{{url_for('addCategory')}}">Add Category</a></li>
             <li><a href="{{url_for('editCategory')}}">Delete Category</a></li>
 
