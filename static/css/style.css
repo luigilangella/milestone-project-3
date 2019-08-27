@@ -1,4 +1,4 @@
-body {
+/* body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -6,15 +6,7 @@ body {
 
 main {
     flex: 1 0 auto;
-}
-
-strong {
-    font-size: x-large;
-}
-
-.page-footer .footer-copyright {
-    background-color: rgb(237, 110, 115) !important;
-}
+} */
 
 .axis path,
 .axis line {

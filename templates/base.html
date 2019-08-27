@@ -24,7 +24,7 @@
                     <li><a href="{{url_for('dashboard')}}">Dashboard</a></li>
                     <li><a href="{{url_for('addExpense')}}">Add New Expense</a></li>
                     <li><a href="{{url_for('addCategory')}}">Add Category</a></li>
-                    <li><a href="{{url_for('editCategory')}}">Delete Category</a></li>
+                    <li><a href="{{url_for('editCategory')}}">Delete / Reset Category</a></li>
 
                 </ul>
             </div>
@@ -33,7 +33,7 @@
             <li><a href="{{url_for('dashboard')}}">Dashboard</a></li>
             <li><a href="{{url_for('addExpense')}}">Add New Expense</a></li>
             <li><a href="{{url_for('addCategory')}}">Add Category</a></li>
-            <li><a href="{{url_for('editCategory')}}">Delete Category</a></li>
+            <li><a href="{{url_for('editCategory')}}">Delete / Reset Category</a></li>
 
         </ul>
     </header>
@@ -42,10 +42,11 @@
     </main>
 
     <footer class="page-footer indigo darken-1">
-        <div class="footer-copyright indigo darken-1 grey-text text-lighten-4 right">
-
-            <h7>© 2019 Luigi Langella</h7>
-
+        <div class="footer-copyright indigo darken-1">
+            <div class="container">
+                © 2014 Copyright Luigi Langella
+                <a class="grey-text text-lighten-4 right" href="{{url_for('dashboard')}}"><i class="small material-icons">refresh</i></a>
+            </div>
         </div>
     </footer>
 

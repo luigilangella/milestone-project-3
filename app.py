@@ -15,10 +15,16 @@ mongo = PyMongo(app)
 @app.route('/dashboard')
 def dashboard():
     data = dumps(mongo.db.categories.find())
-    with open('static/data/data.json', 'w') as file:  # Use file to refer to the file objects
+    with open('static/data/data.json', 'w') as file:
         file.write(data)
     all_categories = mongo.db.categories.find()
     return render_template('dashboard.html', categories=all_categories)
+
+@app.route('/reset_category/<category_id>')
+def reset_category(category_id):
+    all_categories = mongo.db.categories
+    all_categories.update_many({'_id': ObjectId(category_id)},{'$set':{'value': int('0')}})
+    return redirect(url_for('dashboard'))
 
 @app.route('/addExpense')
 def addExpense():
