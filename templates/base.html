@@ -18,13 +18,14 @@
     <header>
         <nav>
             <div class="nav-wrapper indigo darken-1">
-                <a href="#" class="brand-logo right">Expense Tracker</a>
+                <a class="brand-logo right">Expense Tracker</a>
                 <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
                     <li><a href="{{url_for('dashboard')}}">Dashboard</a></li>
                     <li><a href="{{url_for('addExpense')}}">Add New Expense</a></li>
                     <li><a href="{{url_for('addCategory')}}">Add Category</a></li>
                     <li><a href="{{url_for('editCategory')}}">Delete / Reset Category</a></li>
+                    <li><a class="modal-trigger" href="#modal1">Help</a></li>
 
                 </ul>
             </div>
@@ -34,6 +35,7 @@
             <li><a href="{{url_for('addExpense')}}">Add New Expense</a></li>
             <li><a href="{{url_for('addCategory')}}">Add Category</a></li>
             <li><a href="{{url_for('editCategory')}}">Delete / Reset Category</a></li>
+            <li><a class="modal-trigger" href="#modal1">Help</a></li>
 
         </ul>
     </header>
@@ -43,12 +45,21 @@
 
     <footer class="page-footer indigo darken-1">
         <div class="footer-copyright indigo darken-1">
-            <div class="container">
+            <div class="container" id="copyright-footer">
                 © 2014 Copyright Luigi Langella
-                <a class="grey-text text-lighten-4 right" href="{{url_for('dashboard')}}"><i class="small material-icons">refresh</i></a>
             </div>
         </div>
     </footer>
+    <!-- Modal Help Page -->
+    <div id="modal1" class="modal modal-fixed-footer col s-12">
+        <div class="modal-content">
+            <h4>Modal Header</h4>
+            <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+    </div>
 
     <!-- Compiled and minified jquery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -60,7 +71,8 @@
             $('.sidenav').sidenav()
             $('.collapsible').collapsible()
             $('select').formSelect()
-            $('.dropdown-trigger').dropdown();
+            $('.dropdown-trigger').dropdown()
+            $('.modal').modal();
         });
     </script>
     <!-- Javascript files to draw graphs-->
