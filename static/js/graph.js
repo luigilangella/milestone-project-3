@@ -23,7 +23,7 @@ function pieChart_expense(ndx) {
         .height(300)
         .dimension(dim)
         .group(group)
-        .legend(dc.legend().x(0).y(0).gap(25));
+        .legend(dc.legend().x(0).y(0).gap(20));
 
 
 }
