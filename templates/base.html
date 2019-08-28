@@ -22,7 +22,7 @@
                 <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
                     <li><a href="{{url_for('dashboard')}}">Dashboard</a></li>
-                    <li><a href="{{url_for('addExpense')}}">Add New Expense</a></li>
+                    <li><a href="{{url_for('addExpense')}}">Add Expense</a></li>
                     <li><a href="{{url_for('addCategory')}}">Add Category</a></li>
                     <li><a href="{{url_for('editCategory')}}">Delete / Reset Category</a></li>
                     <li><a class="modal-trigger" href="#modal1">Help</a></li>
@@ -32,7 +32,7 @@
         </nav>
         <ul class="sidenav blue lighten-3" id="mobile">
             <li><a href="{{url_for('dashboard')}}">Dashboard</a></li>
-            <li><a href="{{url_for('addExpense')}}">Add New Expense</a></li>
+            <li><a href="{{url_for('addExpense')}}">Add Expense</a></li>
             <li><a href="{{url_for('addCategory')}}">Add Category</a></li>
             <li><a href="{{url_for('editCategory')}}">Delete / Reset Category</a></li>
             <li><a class="modal-trigger" href="#modal1">Help</a></li>
@@ -50,11 +50,19 @@
             </div>
         </div>
     </footer>
+
     <!-- Modal Help Page -->
     <div id="modal1" class="modal modal-fixed-footer col s-12">
         <div class="modal-content">
-            <h4>Modal Header</h4>
-            <p>A bunch of text</p>
+            <h4>How to Use the Expense Tracker</h4>
+            <p>The Expense Tracker is designed to help you keep track of your monthly expenses, giving you an overview of the totals by category and show you were most of your money goes!</p>
+            <ol>
+                <li>You can reset all the categories to $0 simply by clicking on the delete/reset button</li>
+                <li>As you add your expenses the tracker will add them to your existing ones.</li>
+                <li>If you want you can add a new category for your convinience by clicking on the add category button.</li>
+                <li>Soon more features will be added so keep updating your app!</li>
+            </ol>
+            <h3>Thank you for using my App!</h3>
         </div>
         <div class="modal-footer">
             <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
@@ -80,7 +88,7 @@
     <script type="text/javascript" src="static/js/crossfilter.min.js"></script>
     <script type="text/javascript" src="static/js/dc.min.js"></script>
     <script type="text/javascript" src="static/js/queue.min.js"></script>
-    <script type="text/javascript" src="static/js/graph.js"></script>
+    <script type="text/javascript" src="static/js/graph.js?u={{ last_updated }}"></script>
 </body>
 
 </html>

@@ -8,6 +8,7 @@ app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = 'expense-tracker'
 app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 mongo = PyMongo(app)
 

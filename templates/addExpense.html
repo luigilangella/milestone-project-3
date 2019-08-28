@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 <div class="row">
     <div>
-        <h4 class="center-align">Add a new expense to the dashboard</h4>
+        <h4 class="center-align">Add expense to the dashboard</h4>
     </div>
     <hr>
     <form action="{{ url_for('insertExpense')}}" method="POST" class="col s12">
@@ -20,7 +20,7 @@
             <div class="input-field col s12 m6 l6">
                 <i class="material-icons prefix">attach_money</i>
                 <input id="value" type='number' name="value" class="validate">
-                <label>How Much Did You Spend?</label>
+                <label>How Much Would You Like to Add?</label>
             </div>
         </div>
         <button class="btn waves-effect waves-light" type="submit">Add Expense
