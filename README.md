@@ -4,7 +4,7 @@ This web application has been designed to allow users to track their expenditure
  
 ## UX
 Everyone that has a budget can run into difficoulties overspending, this app will allow the user to keep track of their monthly expenses by giving a visual overview of the money spent and the possibility to add or save as they wish. It should appeal to a broad range of users and its so easy to use that even a 5 years old would be able to interact with it.
-In the initial stage of the development a simple dashboard mock up was drawn and you can see it [here](media/Expense Tracker.png). As the development took place more pages were added and the logic to link them to the database was implemented, this required regular manual testing to make sure all the parts of the app worked and the user would find easy to navigate through the application.
+In the initial stage of the development a simple dashboard mock up was drawn and you can see it [here](expense_tracker/media/Expense Tracker.png). As the development took place more pages were added and the logic to link them to the database was implemented, this required regular manual testing to make sure all the parts of the app worked and the user would find easy to navigate through the application.
 
 ## Features
 
