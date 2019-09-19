@@ -8,19 +8,21 @@ function makegraphs(error, data) {
     pieChart_expense(ndx);
     barChart_expense(ndx);
 
+
     dc.renderAll();
 }
 
 function pieChart_expense(ndx) {
-    var dim = ndx.dimension(dc.pluck("category_name"));
+    var dim = ndx.dimension(dc.pluck("name"));
     var group = dim.group().reduceSum(function(d) {
-        return d.value;
+        return d.ammount;
     });
 
 
     dc.pieChart("#pie")
-        .width(900)
-        .height(300)
+        // .width(500)
+        // .height(500)
+        .useViewBoxResizing(true)
         .dimension(dim)
         .group(group)
         .legend(dc.legend().x(0).y(0).gap(20));
@@ -29,20 +31,21 @@ function pieChart_expense(ndx) {
 }
 
 function barChart_expense(ndx) {
-    var dim = ndx.dimension(dc.pluck("category_name"));
+    var dim = ndx.dimension(dc.pluck("name"));
     var group = dim.group().reduceSum(function(d) {
-        return d.value;
+        return d.ammount;
     });
 
     dc.barChart("#bar")
-        .width(600)
-        .height(300)
+
+    // .width(90)
+    //     .height(40)
+    .useViewBoxResizing(true)
         .outerPadding(50)
         .dimension(dim)
         .group(group)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .yAxis().ticks(5);
-
 
 }

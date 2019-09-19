@@ -1,26 +1,36 @@
 {% extends 'base.html' %} {% block content %}
-<section id="categories">
-    <div class="row">
-        {% for category in categories %}
-        <div class="col s12 m6 l6">
-            <div class="collection">
-                <a class="collection-item">{{ category.category_name }} : {{ category.value }}<i class="material-icons tiny">attach_money</i></a>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-</section>
-<section id="graphs">
-    <div class="container">
-        <div class="row">
-            <div class="col s12 m6 l6 left">
-                <div id="pie"></div>
-            </div>
-            <div class="col s12 m6 l6 right">
-                <div id="bar"></div>
-            </div>
-        </div>
-    </div>
-</section>
+<div class="row">
+    <div class="col s12 m6 l6">
+        <section id="categories">
+            <ul class="collapsible" data-collapsible="accordion">
+                {% for category in categories %}
+                <li>
+                    <div class="collapsible-header">
+                        <div class="category-header">
+                            <i class="material-icons">expand_more</i>
+                            <span>{{ category.name }} : $ {{ category.ammount }} </span>
+                        </div>
+                    </div>
+                    <div class="collapsible-body collection">
+                        <span class="collection-item">Description: {{ category.description }}</span>
+                        <hr>
+                        <span class="collection-item">Date & Time: {{ category.date }}</span>
+                    </div>
+                </li>
+                {% endfor %}
 
+
+            </ul>
+        </section>
+    </div>
+
+    <div class="col s12 m6 l6">
+        <section id="graphs">
+
+            <div id="pie"></div>
+            <div id="bar"></div>
+
+        </section>
+    </div>
+</div>
 {% endblock %}
