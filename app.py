@@ -20,7 +20,8 @@ def dashboard():
     with open('static/data/data.json', 'w') as file:
         file.write(data)
     all_categories = mongo.db.expense_categories.find()
-    return render_template('dashboard.html', categories=all_categories)
+    income_categories = mongo.db.income_categories.find()
+    return render_template('dashboard.html', categories=all_categories, income_categories=income_categories)
 
 @app.route('/reset_category/<category_id>')
 def reset_category(category_id):

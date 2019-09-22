@@ -18,8 +18,27 @@
                     </div>
                 </li>
                 {% endfor %}
-
-
+            </ul>
+        </section>
+    </div>
+    <div class="col s12 m6 l6">
+        <section id="income_categories">
+            <ul class="collapsible" data-collapsible="accordion">
+                {% for category in income_categories %}
+                <li>
+                    <div class="collapsible-header">
+                        <div class="category-header">
+                            <i class="material-icons">expand_more</i>
+                            <span>{{ category.name }} : $ {{ category.ammount }} </span>
+                        </div>
+                    </div>
+                    <div class="collapsible-body collection">
+                        <span class="collection-item">Description: {{ category.description }}</span>
+                        <hr>
+                        <span class="collection-item">Date & Time: {{ category.date }}</span>
+                    </div>
+                </li>
+                {% endfor %}
             </ul>
         </section>
     </div>
