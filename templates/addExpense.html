@@ -11,7 +11,7 @@
                 <select id="category" name="name">
                     <option value="" disabled selected>Choose your option</option>
                     {% for category in categories %}
-                    <option value="{{ category.name }}">{{ category.name }}</option>
+                    <option value="{{ category.name }}">{{ category.name }} : $ {{ category.ammount }}</option>
                     {% endfor %}
                 </select>
                 <label>Category Select</label>
@@ -21,6 +21,16 @@
                     <i class="material-icons prefix">attach_money</i>
                     <input id="ammount" type='number' step='any' name="ammount" class="validate">
                     <label>How Much Would You Like to Add?</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">today</i>
+                    <input id="date" name="date" type="text" class="datepicker" value="{{ dateNow }}">
+                    <label for="icon_prefix">Date</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">today</i>
+                    <input id="time" name="time" type="text" class="timepicker" value="{{ timeNow }}">
+                    <label for="icon_prefix">Time</label>
                 </div>
             </div>
             <div class="row">

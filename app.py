@@ -1,4 +1,5 @@
 import os, json, datetime
+from dateutil.parser import parse
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -24,29 +25,33 @@ def dashboard():
 @app.route('/reset_category/<category_id>')
 def reset_category(category_id):
     all_categories = mongo.db.expense_categories
-    all_categories.update({'name':request.form.get('name')},{
-        'name':request.form.get('name'),
+    all_categories.update_many({'_id': ObjectId(category_id)},{'$set':
+    {
         'description':'',
-        'date': ''
-    })
-    all_categories.update_many({'_id': ObjectId(category_id)},{'$set':{'ammount': float('0')}})
+        'date': '',
+        'ammount': float(0)
+    }})
+    # all_categories.update_many({'_id': ObjectId(category_id)},{'$set':{'ammount': float('0')}})
     return redirect(url_for('dashboard'))
 
 @app.route('/addExpense/')
 def addExpense():
     all_categories = mongo.db.expense_categories.find()
-    return render_template('addExpense.html', categories=all_categories)
+    return render_template('addExpense.html', categories=all_categories, dateNow=datetime.date.today(),
+                                              timeNow=datetime.datetime.now().time().strftime('%H:%M:%S'))
 
 @app.route('/insertExpense', methods=['POST'])
 def insertExpense():
+    space = " "
     all_categories = mongo.db.expense_categories
-    all_categories.update({'name':request.form.get('name')},
+    dateTime = request.form.get('date'), request.form.get('time')
+    all_categories.update({'name':request.form.get('name')},{'$set':
     {
         'name':request.form.get('name'),
         'description':request.form.get('description'),
-        'date': datetime.datetime.now()
-    })
-    all_categories.update_one({'name':request.form.get('name')},{'$inc': {'ammount':float(request.form.get('ammount'))}})
+        'date': parse(space.join(dateTime))
+    },'$inc': {'ammount': float(request.form.get('ammount'))}})
+    
     return redirect(url_for('dashboard'))
 
 @app.route('/delete_category/<category_id>')
