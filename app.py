@@ -32,7 +32,26 @@ def reset_category(category_id):
         'date': '',
         'ammount': float(0)
     }})
-    # all_categories.update_many({'_id': ObjectId(category_id)},{'$set':{'ammount': float('0')}})
+    return redirect(url_for('dashboard'))
+
+@app.route('/addIncome/')
+def addIncome():
+    income_categories = mongo.db.income_categories.find()
+    return render_template('addIncome.html', income_categories=income_categories, dateNow=datetime.date.today(),
+                                              timeNow=datetime.datetime.now().time().strftime('%H:%M:%S'))
+
+@app.route('/insertIncome', methods=['POST'])
+def insertIncome():
+    space = " "
+    all_categories = mongo.db.income_categories
+    dateTime = request.form.get('date'), request.form.get('time')
+    all_categories.update({'name':request.form.get('name')},{'$set':
+    {
+        'name':request.form.get('name'),
+        'description':request.form.get('description'),
+        'date': parse(space.join(dateTime))
+    },'$inc': {'ammount': float(request.form.get('ammount'))}})
+    
     return redirect(url_for('dashboard'))
 
 @app.route('/addExpense/')
@@ -51,7 +70,7 @@ def insertExpense():
         'name':request.form.get('name'),
         'description':request.form.get('description'),
         'date': parse(space.join(dateTime))
-    },'$inc': {'ammount': float(request.form.get('ammount'))}})
+    },'$inc': {'ammount': -float(request.form.get('ammount'))}})
     
     return redirect(url_for('dashboard'))
 

@@ -1,0 +1,50 @@
+{% extends 'base.html' %} {% block content %}
+<div class="row">
+    <div>
+        <h4 class="center-align">Add expense to the dashboard</h4>
+    </div>
+    <hr>
+    <form action="{{ url_for('insertIncome')}}" method="POST" class="col s12">
+        <div class="row">
+            <div class="input-field col s12 m6 l6">
+                <i class="material-icons prefix">assignment</i>
+                <select id="category" name="name">
+                    <option value="" disabled selected>Choose your option</option>
+                    {% for category in income_categories %}
+                    <option value="{{ category.name }}">{{ category.name }} : $ {{ category.ammount }}</option>
+                    {% endfor %}
+                </select>
+                <label>Category Select</label>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m6 l6">
+                    <i class="material-icons prefix">attach_money</i>
+                    <input id="ammount" type='number' step='any' name="ammount" class="validate">
+                    <label>How Much Would You Like to Add?</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">today</i>
+                    <input id="date" name="date" type="text" class="datepicker" value="{{ dateNow }}">
+                    <label for="icon_prefix">Date</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">today</i>
+                    <input id="time" name="time" type="text" class="timepicker" value="{{ timeNow }}">
+                    <label for="icon_prefix">Time</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m6 l6">
+                    <i class="material-icons prefix">assignment</i>
+                    <input id="description" name="description" type="text" class="validate" value="">
+                    <label for="icon_prefix">Description</label>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn waves-effect waves-light" type="submit">Add Income
+            <i class="material-icons right">send</i>
+        </button>
+    </form>
+</div>
+{% endblock %}
