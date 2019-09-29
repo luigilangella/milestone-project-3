@@ -23,16 +23,6 @@ def dashboard():
     income_categories = mongo.db.income_categories.find()
     return render_template('dashboard.html', categories=all_categories, income_categories=income_categories)
 
-@app.route('/reset_category/<category_id>')
-def reset_category(category_id):
-    all_categories = mongo.db.expense_categories
-    all_categories.update_many({'_id': ObjectId(category_id)},{'$set':
-    {
-        'description':'',
-        'date': '',
-        'ammount': float(0)
-    }})
-    return redirect(url_for('dashboard'))
 
 @app.route('/addIncome/')
 def addIncome():
@@ -74,25 +64,54 @@ def insertExpense():
     
     return redirect(url_for('dashboard'))
 
-@app.route('/delete_category/<category_id>')
-def delete_category(category_id):
-    mongo.db.expense_categories.remove({'_id': ObjectId(category_id)})
-    return redirect(url_for('dashboard'))
+
+@app.route('/addCategory')
+def addCategory():
+    field = mongo.db
+    return render_template('addCategory.html', expense_field=field.expense_categories.name, income_field=field.income_categories.name)
+
 
 @app.route('/insert_category', methods=['POST'])
 def insert_category():
     category_doc = {'name': request.form.get('category_name')}
-    mongo.db.expense_categories.insert_one(category_doc)
+    if (request.form.get('fields')) == 'expense_category':
+        mongo.db.expense_categories.insert_one(category_doc)
+    else:
+        mongo.db.income_categories.insert_one(category_doc)
     return redirect(url_for('dashboard'))
 
 @app.route('/editCategory')
 def editCategory():
     all_categories = mongo.db.expense_categories.find()
-    return render_template('editCategory.html', categories=all_categories)
+    income = mongo.db.income_categories.find()
+    return render_template('editCategory.html', categories=all_categories, income_categories=income)
 
-@app.route('/addCategory')
-def addCategory():
-    return render_template('addCategory.html')
+@app.route('/reset_category/<category_id>')
+def reset_category(category_id):
+    
+    if mongo.db.expense_categories.find_one(ObjectId(category_id)):
+        mongo.db.expense_categories.update_many({'_id': ObjectId(category_id)},{'$set':
+        {
+            'description':'',
+            'date': '',
+            'ammount': float(0)
+        }})
+    else:
+         mongo.db.income_categories.update_many({'_id': ObjectId(category_id)},{'$set':
+        {
+            'description':'',
+            'date': '',
+            'ammount': float(0)
+        }})
+    return redirect(url_for('dashboard'))
+
+@app.route('/delete_category/<category_id>')
+def delete_category(category_id):
+    if mongo.db.expense_categories.find_one(ObjectId(category_id)):
+        mongo.db.expense_categories.remove({'_id': ObjectId(category_id)})
+    else:
+        mongo.db.income_categories.remove({'_id': ObjectId(category_id)})
+    return redirect(url_for('dashboard'))
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

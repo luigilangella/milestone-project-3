@@ -1,22 +1,73 @@
 {% extends 'base.html' %} {% block content %}
+
 <div class="row">
-    <div>
-        <h4 class="center-align">Delete a Category of your Choice</h4>
-    </div>
-    <ul class="collapsible" data-collapsible="accordion">
-        {% for category in categories %}
-        <li>
-            <div class="collapsible-header">
-                <a href="{{url_for('delete_category', category_id=category._id)}}" class="waves-effect waves-light btn btn-small">Del</a>
-                <a href="{{url_for('reset_category', category_id=category._id)}}" class="waves-effect waves-light btn btn-small">Reset</a>
-                <div class="task_header col s9">
-                    <strong>{{category.name}} : ${{category.ammount}}</strong>
+    <div class="col s12 m6 l6">
+        <ul class="collapsible">
+            <li>
+                <div class="collapsible-header"><i class="material-icons">add_shopping_cart</i>Expense List <i class="material-icons">expand_more</i></div>
+                <div class="collapsible-body">
+                    <span>
+                            <section id="categories">
+                                <ul class="collapsible" data-collapsible="accordion">
+                                    {% for category in categories %}
+                                    <li>
+                                        <div class="collapsible-header">
+                                            <div class="category-header">
+                                                <i class="material-icons">expand_more</i>
+                                                <a href="{{url_for( 'delete_category', category_id=category._id)}} " class="waves-effect waves-light btn btn-small ">Del</a>
+                                                <a href="{{url_for( 'reset_category', category_id=category._id)}} " class="waves-effect waves-light btn btn-small ">Reset</a>
+                                                <span>{{ category.name }} : $ {{ category.ammount }} </span>
                 </div>
-            </div>
-        </li>
-        {% endfor %}
-
+    </div>
+    <div class="collapsible-body collection">
+        <span class="collection-item">Description: {{ category.description }}</span>
+        <hr>
+        <span class="collection-item">Date & Time: {{ category.date }}</span>
+    </div>
+    </li>
+    {% endfor %}
     </ul>
+    </section>
+    </span>
+</div>
+</li>
+</ul>
+</div>
 
+
+
+<div class="col s12 m6 l6">
+    <ul class="collapsible">
+        <li>
+            <div class="collapsible-header"><i class="material-icons">monetization_on</i>Income, Deposits & Savings <i class="material-icons">expand_more</i>
+            </div>
+            <div class="collapsible-body">
+                <span>
+                            <section id="income_categories">
+                                <ul class="collapsible" data-collapsible="accordion">
+                                    {% for category in income_categories %}
+                                    <li>
+                                        <div class="collapsible-header">
+                                            <div class="category-header">
+                                                <i class="material-icons">expand_more</i>
+                                                <a href="{{url_for( 'delete_category', category_id=category._id)}} " class="waves-effect waves-light btn btn-small ">Del</a>
+                                                <a href="{{url_for( 'reset_category', category_id=category._id)}} " class="waves-effect waves-light btn btn-small ">Reset</a>
+                                                <span>{{ category.name }} : $ {{ category.ammount }} </span>
+            </div>
+</div>
+<div class="collapsible-body collection">
+    <span class="collection-item">Description: {{ category.description }}</span>
+    <hr>
+    <span class="collection-item">Date & Time: {{ category.date }}</span>
+</div>
+</li>
+{% endfor %}
+</ul>
+</section>
+</span>
+</div>
+</li>
+</ul>
+</div>
 </div>
 {% endblock %}

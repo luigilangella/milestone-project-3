@@ -44,12 +44,12 @@ svg text.label {
 
 #bar.dc-chart svg {
     width: 100%;
-    height: 400px;
+    height: 250px;
     float: right;
 }
 
 #pie.dc-chart svg {
     width: 100%;
-    height: 400px;
+    height: 250px;
     float: left;
 }
