@@ -47,7 +47,7 @@
                                     <div class="collapsible-header">
                                         <div class="category-header">
                                             <i class="material-icons">expand_more</i>
-                                            <span>{{ category.name }} : $ {{ category.ammount }} </span>
+                                            <span>{{ category.name }} : $ {{ category.value }} </span>
             </div>
 </div>
 <div class="collapsible-body collection">
@@ -68,19 +68,22 @@
 <div class="row">
 
     <section id="graphs">
-        <div class="col s6">
-            <div id="pie"></div>
+        <div class="col s4">
+            <div id="chart-ring-year"></div>
         </div>
-        <div class="col s6">
-            <div id="bar"></div>
+        <div class="col s4">
+            <div id="chart-hist-spend"></div>
+        </div>
+        <div class="col s4">
+            <div id="chart-row-spenders"></div>
         </div>
     </section>
 
 </div>
 <!-- Javascript files to draw graphs-->
-<script type="text/javascript" src="static/js/d3.min.js"></script>
-<script type="text/javascript" src="static/js/crossfilter.min.js"></script>
-<script type="text/javascript" src="static/js/dc.min.js"></script>
-<script type="text/javascript" src="static/js/queue.min.js"></script>
-<script type="text/javascript" src="static/js/graph.js?u={{ last_updated }}"></script>
+<script type="text/javascript" src="/static/js/d3.min.js"></script>
+<script type="text/javascript" src="/static/js/crossfilter.min.js"></script>
+<script type="text/javascript" src="/static/js/dc.js"></script>
+<script type="text/javascript" src="/static/js/queue.min.js"></script>
+<script type="text/javascript" src="/static/js/graph.js"></script>
 {% endblock %}

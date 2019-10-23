@@ -16,9 +16,15 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/dashboard')
 def dashboard():
-    data = dumps(mongo.db.expense_categories.find())
+    all_categories = mongo.db.expense_categories.find()
+    income_categories = mongo.db.income_categories.find()
+    data1 = dumps(all_categories)
+    data2 = dumps(income_categories)
+    all_data = json.loads(data1,encoding=list)
+    all_data1 = json.loads(data2)
+    data = all_data + all_data1
     with open('static/data/data.json', 'w') as file:
-        file.write(data)
+        file.write(dumps(data))
     all_categories = mongo.db.expense_categories.find()
     income_categories = mongo.db.income_categories.find()
     return render_template('dashboard.html', categories=all_categories, income_categories=income_categories)
@@ -40,7 +46,7 @@ def insertIncome():
         'name':request.form.get('name'),
         'description':request.form.get('description'),
         'date': parse(space.join(dateTime))
-    },'$inc': {'ammount': float(request.form.get('ammount'))}})
+    },'$inc': {'value': float(request.form.get('value'))}})
     
     return redirect(url_for('dashboard'))
 

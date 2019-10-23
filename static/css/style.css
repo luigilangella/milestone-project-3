@@ -1,55 +1,55 @@
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-}
-
-main {
-    flex: 1 0 auto;
-}
-
-#categories {
-    padding-top: 20px;
-}
-
-#income_categories {
-    padding-top: 20px;
-}
-
-#copyright-footer {
-    text-align: -webkit-center;
-}
-
-.axis path,
-.axis line {
-    fill: none;
-    stroke: #fff;
-}
-
-.axis text {
-    font-size: 13px;
-}
-
-svg text.label {
-    fill: white;
-    font: 15px;
-    font-weight: 400;
-    text-anchor: middle;
-}
-
-#bar .axis.x .tick text {
-    text-anchor: end;
-    transform: rotate(-50deg) translate(-60px, -10px);
-}
-
-#bar.dc-chart svg {
-    width: 100%;
-    height: 250px;
-    float: right;
-}
-
-#pie.dc-chart svg {
-    width: 100%;
-    height: 250px;
-    float: left;
-}
+    body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+    
+    main {
+        flex: 1 0 auto;
+    }
+    
+    #categories {
+        padding-top: 20px;
+    }
+    
+    #income_categories {
+        padding-top: 20px;
+    }
+    
+    #copyright-footer {
+        text-align: -webkit-center;
+    }
+    
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: #fff;
+    }
+    
+    .axis text {
+        font-size: 13px;
+    }
+    
+    svg text.label {
+        fill: white;
+        font: 15px;
+        font-weight: 400;
+        text-anchor: middle;
+    }
+    
+    #bar .axis.x .tick text {
+        text-anchor: end;
+        transform: rotate(-50deg) translate(-60px, -10px);
+    }
+    
+    #bar.dc-chart svg {
+        width: 100%;
+        height: 250px;
+        float: right;
+    }
+    
+    #pie.dc-chart svg {
+        width: 100%;
+        height: 250px;
+        float: left;
+    }
