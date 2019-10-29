@@ -4,11 +4,13 @@ queue()
 
 function makegraphs(error, data) {
     console.log(data);
-    var ndx = crossfilter(data);
-    var all = ndx.groupAll().reduceSum(function(d) { return d.value + -d.ammount; });
+    data = data.filter(d => d.date !== "");
     data.forEach(function(d) {
         d.date = new Date(d.date.$date).toDateString();
     });
+    var ndx = crossfilter(data);
+    var all = ndx.groupAll().reduceSum(function(d) { return d.value + -d.ammount; });
+
 
 
     Chart_expense(ndx);
@@ -49,7 +51,7 @@ function makegraphs(error, data) {
             spendDim = ndx.dimension(function(d) { return "$" + -d.ammount; }),
             nameDim = ndx.dimension(function(d) { return d.name; }),
             incomeDim = ndx.dimension(function(d) { return d.value; }),
-            pie_dim = ndx.dimension(function(d) { return +d.value > -d.ammount ? "Savings" : "Expense"; }),
+            pie_dim = ndx.dimension(function(d) { return d.value > -d.ammount ? "Savings" : "Expense"; }),
             pie_group = pie_dim.group().reduceSum(function(d) { return d.value - d.ammount; }),
             spendPerYear = yearDim.group().reduceSum(function(d) { return d.ammount; }),
             incomePerYear = yearDim.group().reduceSum(function(d) { return d.value, -d.ammount; }),
