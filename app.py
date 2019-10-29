@@ -8,7 +8,7 @@ from bson.json_util import dumps
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = 'ExpenceTracker'
-app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
+app.config["MONGO_URI"] = os.environ['MONGO_URI']
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 mongo = PyMongo(app)
