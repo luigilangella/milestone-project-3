@@ -8,11 +8,9 @@ In the initial stage of the development a simple dashboard mock up was drawn and
 
 ## Features
 
-The main page of the project is a dashboard which will display all the categories of the expenditures and two graphs to give a visual sense of the numbers.
-There is a navigation bar that will take you to the other pages where you can add a new category, then add a new expence, edit the categories or delete them all together. In any case the user is re-directed to the main dashboard when the updated data will be displayed.
- 
-### Features Left to Implement
-- In the future i would like to add a calendar to be able to edit the expenses by date aswell giving the user more control of the tracker ore a idefinite period of time. The possibility for the user to use decimal figures in the add expense form as for now you can only input integers.
+The main page of the project is a dashboard which will display all the categories of the expenditures and income. Two graphs to give a visual sense of the numbers are just below and update as the data changes.
+There is a navigation bar that will take you to the other pages where you can add a new category, then add a new expense, edit the categories or delete them all together. In any case the user is re-directed to the main dashboard when the updated data will be displayed.
+A calendar to be able to edit the expenses by date and time is been added to the forms aswell giving the user more control of the tracker over an idefinite period of time.
 
 ## Technologies Used
 

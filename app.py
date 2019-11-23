@@ -107,7 +107,7 @@ def reset_category(category_id):
         {
             'description':'',
             'date': '',
-            'ammount': float(0)
+            'value': float(0)
         }})
     return redirect(url_for('dashboard'))
 
