@@ -5,16 +5,18 @@
     </div>
     <hr>
     <form action="{{ url_for('insert_category')}}" method="POST" class="col s12">
-        <div class="input-field col s12 m6 l6">
-            <i class="material-icons prefix">assignment</i>
-            <select id="fields" name="fields">
+        <div class="row">
+            <div class="input-field col s12 m6 l6">
+                <i class="material-icons prefix">assignment</i>
+                <select id="fields" name="fields">
                         <option value="" disabled selected>Choose your option</option>
                         
                         <option value="{{ expense_field }}">{{ expense_field }}</option>
                         <option value="{{ income_field }}">{{ income_field }}</option>
                        
                     </select>
-            <label>Select the field</label>
+                <label>Select the field</label>
+            </div>
         </div>
         <div class="row">
 
