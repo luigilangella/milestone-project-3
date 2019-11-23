@@ -1,6 +1,6 @@
 # Expense Tracker
 
-This web application has been designed to allow users to track their expenditures monthly. It gives an overview of the total money spend for category and two simple graphs give the user a visual rappresentation to see where most of their money go every month. Its very simple to use and interactive, the graphs will filter if clicked to give more control to the user. There is also a help button to give a full instruction on how to use the app.
+This Python Flask web application has been designed to allow users to track their expenditures monthly. It gives an overview of the total money spend for category and two simple graphs give the user a visual rappresentation to see where most of their money go every month. Its very simple to use and interactive, the graphs will filter if clicked to give more control to the user. There is also a help button to give a full instruction on how to use the app.
  
 ## UX
 Everyone that has a budget can run into difficoulties overspending, this app will allow the user to keep track of their monthly expenses by giving a visual overview of the money spent and the possibility to add or save as they wish. It should appeal to a broad range of users and its so easy to use that even a 5 years old would be able to interact with it.
@@ -9,7 +9,7 @@ In the initial stage of the development a simple dashboard mock up was drawn and
 ## Features
 
 The main page of the project is a dashboard which will display all the categories of the expenditures and income. Two graphs to give a visual sense of the numbers are just below and update as the data changes.
-There is a navigation bar that will take you to the other pages where you can add a new category, then add a new expense, edit the categories or delete them all together. In any case the user is re-directed to the main dashboard when the updated data will be displayed.
+There is a navigation bar that will take you to the other pages where you can add a new category, then add a New expense, edit the categories or delete them all together. In any case the user is re-directed to the main dashboard when the updated data will be displayed.
 A calendar to be able to edit the expenses by date and time is been added to the forms aswell giving the user more control of the tracker over an idefinite period of time.
 
 ## Technologies Used
