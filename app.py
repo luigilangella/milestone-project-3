@@ -6,7 +6,7 @@ from bson.objectid import ObjectId
 from bson.json_util import dumps
 
 app = Flask(__name__)
-
+ 
 app.config["MONGO_DBNAME"] = 'ExpenceTracker'
 app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
@@ -73,14 +73,17 @@ def insertExpense():
 
 @app.route('/addCategory')
 def addCategory():
-    field = mongo.db
-    return render_template('addCategory.html', expense_field=field.expense_categories.name, income_field=field.income_categories.name)
+    expense_field = mongo.db.expense_categories.name
+    income_field = mongo.db.income_categories.name
+    return render_template('addCategory.html', expense_field=expense_field, income_field=income_field)
 
 
 @app.route('/insert_category', methods=['POST'])
 def insert_category():
-    category_doc = {'name': request.form.get('category_name')}
-    if (request.form.get('fields')) == 'expense_category':
+    category_doc = {'name': request.form.get('category_name'), 'description':'',
+            'date': '',
+            'ammount': float(0)}
+    if (request.form.get('fields')) == 'expense_categories':
         mongo.db.expense_categories.insert_one(category_doc)
     else:
         mongo.db.income_categories.insert_one(category_doc)

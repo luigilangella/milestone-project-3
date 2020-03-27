@@ -11,13 +11,13 @@ function makegraphs(error, data) {
 
     console.log(data);
 
-
     var ndx = crossfilter(data);
 
 
     Chart_expense(ndx);
 
     dc.renderAll();
+
 
     function Chart_expense(ndx) {
 
@@ -35,6 +35,7 @@ function makegraphs(error, data) {
             .x(d3.scale.ordinal())
             .xUnits(dc.units.ordinal)
             .xAxisLabel('Date')
+            .yAxisLabel('Spend $')
             .dimension(yearDim)
             .barPadding(0.1)
             .outerPadding(0.05)

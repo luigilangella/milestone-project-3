@@ -1,4 +1,5 @@
 {% extends 'base.html' %} {% block content %}
+
 <div class="row">
     <div class="col s12 m6 l6">
         <ul class="collapsible">
@@ -36,7 +37,8 @@
 <div class="col s12 m6 l6">
     <ul class="collapsible">
         <li>
-            <div class="collapsible-header"><i class="material-icons">monetization_on</i>Income, Deposits & Savings <i class="material-icons">expand_more</i>
+            <div class="collapsible-header"><i class="material-icons">monetization_on</i>Income, Deposits & Savings
+                <i class="material-icons">expand_more</i>
             </div>
             <div class="collapsible-body">
                 <span>
@@ -68,15 +70,20 @@
 <div class="row">
 
     <section id="graphs">
+
         <div class="col s12 m6">
+            <div class="chart-1">Spend History by Date</div>
             <div id="chart-hist-spend"></div>
         </div>
+
         <div class="col s12 m6">
+            <div class="chart-2">Ammount spent by Category</div>
             <div id="chart-row-spenders"></div>
         </div>
     </section>
 
 </div>
+
 <!-- Javascript files to draw graphs-->
 <script type="text/javascript" src="/static/js/d3.min.js"></script>
 <script type="text/javascript" src="/static/js/crossfilter.min.js"></script>
