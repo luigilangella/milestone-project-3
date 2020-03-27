@@ -80,9 +80,10 @@ def addCategory():
 
 @app.route('/insert_category', methods=['POST'])
 def insert_category():
-    category_doc = {'name': request.form.get('category_name'), 'description':'',
-            'date': '',
-            'ammount': float(0)}
+    category_doc = {'name': request.form.get('category_name'), 
+                                             'description':'',
+                                             'date': '',
+                                             'ammount': float(0)}
     if (request.form.get('fields')) == 'expense_categories':
         mongo.db.expense_categories.insert_one(category_doc)
     else:
